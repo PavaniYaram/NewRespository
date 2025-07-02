@@ -1,0 +1,260 @@
+Playwright
+------------
+
+Offical Documentation = https://playwright.dev/
+
+Applications supported - Web browser apps, mobile web apps, API
+Languages supported - JavaScript ,Typescript, Java, Python &.Net(C#)
+Browsers supported - Chromium , webKit(safari) and Firefox(headed/headless) 
+Os supported - Windows, MacOs, Linux, Support CI Runs
+
+Features playwright
+--------------------
+1)Free & open source(customized)
+2)Multi-Browser , Multi-Language,
+Easy setup and configuration
+Functional , API , accessibility testing(Need third party tool to do Accessibility testing)
+Built -in reporters, custom reports
+CI, CD, Docker
+Parallel testing
+Auto wait
+Built -in assertions
+Multi tab & multi window
+Frames, shadow dom
+Test parameterization
+Emulate mobile devices
+Fast
+
+Playwright Installion
+---------------------
+1) Nodejs = to check in cmd node --version
+2) Visual Studio
+
+3) Create project folder --> open in vscode
+4) install playwright using termina --npm init playwright@latest
+package.json ---node project management file
+playwright.config.js -- playwright configuration
+tests -- we can all teh playwright tests
+
+npm playwright -v -- return installed version of playwright
+5)Install playwright using vs code extension
+ Vscode - extenstion - install playwright Test for VSCode
+
+Go to view -->command paletee -->Test install playwright -->click the checkboxes and install
+
+
+run the playwright test
+-----
+npx playwright test
+npx playwright test --headed
+npx playwright show-report
+
+
+
+
+fixture "page" to passed through anynomys function - mandatory"
+
+JavaScript is asynchronized programming language(execution in random way , not a step wise)
+
+JavaScript promise = async keyword make a function return a promise, await keyword will make sure it will wait for promise
+
+How to create and Run Playwrite Tests
+---------------------------------------
+npx playwright test = run all tests on all browsers in headless mode
+npx playwright test Mytest.spec.js = runs a specific test file
+
+npx playwright test Mytest.spec.js --project=chromium  = runs on specific browser 
+npx playwright test Mytest.spec.js --project=chromium --headed = headed mode
+npx playwright test Mytest.spec.js --project=chromium --headed --debug = Debug mode
+
+Locating Elements in Playwright
+----------------------------------
+property
+css
+xpath
+
+Locate single element
+----------------------
+
+link/button
+-----------
+await page.locator('locator').click();
+await page.click('locator');
+
+inputbox
+----------
+await page.locator('locator').fill('value');
+await page.locator('locator').type('value');
+await page.fill('locator','value')
+await page.type('locator','value')
+
+//semicolon is not compulsory in javascript
+
+Locate multiple web elements
+----------------------------
+const element = await page.$$(locator)
+
+
+Part5:
+--------
+https://playwright.dev/docs/Locators
+
+These are the recommended built-in locators.
+
+page.getByRole() to locate by explicit and implicit accessibility attributes.
+page.getByText() to locate by text content.
+page.getByLabel() to locate a form control by associated label's text.
+page.getByPlaceholder() to locate an input by placeholder.
+page.getByAltText() to locate an element, usually image, by its text alternative.
+page.getByTitle() to locate an element by its title attribute.
+page.getByTestId() to locate an element based on its data-testid attribute (other attributes can be configured).
+
+
+Part-6:
+
+codeGen command - npx playwright codegen
+
+ npx playwright codegen --help
+
+to save a recorded script to a file use this command 
+npx playwright codegen  -o tests/codegen.spec.js
+
+npx playwright codegen  --target javascript  
+
+ npx playwright codegen --browser edge 
+> npx playwright codegen --device "Nokia N9"
+npx playwright codegen --viewport-size "1000,520"S
+
+Part-7:
+----------
+Assertions
+----------
+https://playwright.dev/docs/test-assertions
+
+1) expect (page).toHaveURL()  page has URL
+expect(page).not.toHaveURL() ---for negative cases
+2) expect(page).toHaveTitle() page has title
+3)expect(locator).toBeVisible() Element is visible
+
+4)expect(locator).toBeEnabled()  -- control is enabled
+expect(locator).toBeDisbaled()  --Element is disabled
+5) expect(locator).toBeChecked()  --Radio/checkbox is checked
+6)expect(locator).toHaveAttribute() -- Element has attribute
+7)expect(locator).toHaveText() -- element matches text
+8)expect(locator).toContainText() --Element contains text
+9)expect(locator).toHaveValue(value) -- Input has value
+
+10)expect(locator).toHaveCount() List of elements has given length
+
+Part-7
+-----------
+Hard versus soft assertions
+--------------------------
+
+Part-8
+--------
+
+Part-15 - Handle hidden items in Dropdown
+---------------------------------------------
+selecto hub tool and debug option help to inspect the hidden dropdown element.
+
+Part-16- How to handle Dialogs or Alerts
+aler(), confirm(), prompt()
+
+Part-17- How to handle frames
+------------------------------
+Part-18 - How to handle elements in Nested Frames
+
+Part=31 =
+ Tracefile same like screenshot and video 
+go to playwright.config.js  and use attribute add this trace:"on"
+
+ to view the Trace file = file created default in test-results
+we can executed a command = npx playwright show-trace pathoftraceFile
+
+Part-33 - Annotations
+----------
+
+Part-34
+----------
+Page Object models:
+
+
+Introduction
+-------------
+ What is playwright?
+
+Playwright is an open-source tool by Microsoft for automation web browser testing.
+Playwright is a framework for automating web browsers, enabling end-to-end testing.
+Beyond browser automation, playwright offers a dedicated API for testing and interacting with web API's
+Playwright is an open-source Node.js library.
+Release in 2020.
+
+Node.js is an open-source ,cross platform JavaScript runtime environment
+That executes JavaScript code outside of a web browser.
+
+Features
+-----------
+
+Cross browser: work with Chromium (Chrome, Edge), Firefox, WebKit (Safari).
+Cross-Platform: Runs on Windows, Mac, and Linux.
+Cross-language: You can write tests in JavaScript ,TypeScript, Java, Python, or C#.
+
+Test Mobile Web: supports mobile testing for chrome(Android) and Safari (iOS).
+API Testing: Playwright includes built-in API testing, allowing you to test backend APIs together.
+
+Automatic Waiting(Auto-wait): Playwright waits for elements to be ready before performing actions, reducing test flakiness.
+
+Handles complex Elements: Easily interacts with Shadow DOM elements, which are tricky for other tools.
+Parallel Execution: Supports running tests simultaneously in multiple browser instances for faster execution.
+
+Buit-in Reporters: Provides various report formats like HTML, JSON, JUnit, and more. Supports third-party reporting tools like Allure.
+
+1)Inspector: Helps debug tests by showing click points and verifying locators in real time.
+2)Code Generation: The Codegen tool records your actions and converts them into test script in any supported language.
+3)Tracing (Trace Viewer): Captures, screenshots, records, retries flaky tests, and logs steps automatically. Capture all the information to investigate the test failure.
+
+
+JavaScript ----> Dynamically typed language
+ 
+let age =30
+let name= "Pavani"
+
+age= "thirty" --- allowed in JS
+
+
+TypeScript ----> Statically typed language
+ 
+let age =30
+let name= "Pavani"
+
+age= "thirty" --- Not allowed in TS
+Object Oriented concepts are coverd in TypeScript.
+
+
+Why TypeScript
+----------------
+JavaScript(ES3,ES4,ES5,ES6)
+ECMAScript ES is the standard to which all JavaScript code must comply.
+
+TypeScript- superset of JavaScript
+
+A vendor such as Microsoft cannot add features to the JavaScript language without breaking ECMAScript compliance
+In contrast, with TypeScript, Microsoft can add any new features it wants, so long as the generated JavaScript in ECMAScript-compliant.
+That gives Microsoft all the freedom in the world to make the TypeScript as feature-full as any other programming language.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,72 @@
+To convert a string to integer 
+String s = "10"
+ int a = Integer.parseInt(s)
+
+Java Exceptions:
+Airthmetic exception: 6/0;
+
+NumberFormat Exception: Converting string "abc" into integer
+
+ArrayIndexOutofBoundsException: illegal index - negative or grater than or equal to size of the array.
+int arr[]={1,2,3} - when we want try to get array arr[4] 
+
+NullPointerException: you are trying to access a part of something that doesn't exist. 
+
+
+
+
+Throwable is parent class of all exceptions in Java.
+			Throwable
+		Exception	        Error
+
+
+Handling Exceptions:
+
+try  catch  throw  finally  throws
+try
+{
+  code that might cause exception
+}
+catch(Exception obj)
+{ 
+  handling...
+}
+
+> finally{}
+The finally block executes whether exception rise or not and whether exception handled or not. 
+
+Throws keyword
+---------------
+The Java throws keyword is used to declare an exception.
+Throws keyword can be used to declare that a method is not going to handle the checked exception but caller need to handle it
+
+
+throw keyword
+--------------
+The Java throw keyword is used to throw an exception explicitly.
+By using keyword you can create an instance of any exception, either a RuntimeException or a unchecked
+
+
+New Exceptions
+-----------------
+
+Object Ob= new Object();
+String s = (String) object;
+The above program causes below exception
+
+1.ClassCast Exception - Object cannot cast into string
+-------------------
+
+Object ob = new String() ---right
+Before type casting check if(Ob instanceof String)
+
+2(.ExceptionInitializerError)  Arithmetic Exception :int i=20/0
+---------------------------
+
+3. IllegalArgumentException
+----------------------------
+
+
+
+
+

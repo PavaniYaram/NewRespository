@@ -1,0 +1,428 @@
+API Testing By using RestAssured
+
+Day-1
+---------
+RestAssured
+------------------
+RestAssured is API/Library through which we can automate RESTAPI
+
+Pre -requisties:
+----------------
+1)Java & Eclipse
+2) TestNG
+3) Maven(comes with Eclipse)
+
+dependencies
+--------------
+rest -assured
+json-path
+json
+gson
+testng 
+scribejava-apis = Generate fake data
+json-schema-validator
+xml-schema-validator
+
+https requests
+--------------
+get
+post
+put
+delete
+
+gerkin -keywords
+---------------
+given() - content type , set cookies, add auth add param, set headers info etc..
+when() - get ,post,put,delete
+then() - validate staus code, extract response, extract headers cookies & response body
+
+static packages - we have to add manually
+import static io.restassured.RestAssured.*;
+import static io.restassured.matcher.RestAssuredMatchers.*; - given,when,then comes from this static package
+import static org.hamcrest.Matchers.*;
+
+link - https://reqres.in/
+
+Getlistuser:
+https://reqres.in//api/users?page=2
+
+
+PostUser:
+https://reqres.in//api/users
+
+{
+    "name": "morpheus",
+    "job": "leader"
+}
+
+patch:
+https://reqres.in//api/users/2
+
+Delete:
+https://reqres.in/
+/api/users/2
+
+
+
+
+
+day-2 :RestAssured
+-------------------
+
+Student.json -Download this file
+
+
+How many ways we create request body
+----------------------
+1) Hashmap
+2) using org.json
+3) using POJO (plain Old Java object) - getter and setter methods
+
+4) using external json file
+-------------------
+1
+HashMap d = new HashMap();
+d.put("name","pavani");
+String coursesArr[] = {"c","c++"}
+d.put("course",courseArr)
+
+.body(d);
+
+2. add org.json library
+
+JSONObject d = new JSONObject();
+d.put("name","pavani");
+String coursesArr[] = {"c","c++"}
+d.put("course",courseArr)
+
+.body(d.toString());
+
+3.
+
+create  a class pojoRequest 
+Declare variables
+To assing data - click on source --> generate setter and getter methods
+
+Testclass
+---------
+pojoRequest d = new pojoReques();
+d.setName("pavani");
+String coursesArr[] = {"c","c++"}
+d.setCourses(courseArr);
+
+4.
+add jsonfile in project
+File f = new File(".//student.json");
+FileReader fr = new FileReader(f);
+JSONTokener jt = new JSONTokener(fr);
+JSONObject d = new JSONObject(jt);
+
+.body(d.toString());
+
+day3
+--------
+1)Path & Query parameters
+
+https://reqres.in/api/user?page=2
+<--Domain-------><--path-->
+
+go to eclipse and learn from day3 package
+
+2) cookies
+3) Headers
+4) Logging demo
+if we want only response = log().body();
+
+day-4
+--------
+Parsing JSON Response:
+Parsing is nothing but to traverse through the JSON response to get required fields data from JSON is called parsing of JSON
+
+JSON Path Finder = the website where we can find path of Jsondata
+
+Ex: jsonpath in jsonfile = book[3].titilel
+
+//Approach1 - Directly add validations after then()
+
+.body("book[3].titilel",equalTo("name");
+
+
+//Approach 2 - we got response and then assert
+
+Get Response res
+Assert.assertEquals(res.getStatuscode(),200);//validation
+
+String bn = res.jsonPath.get("book[3].title").toString();
+Assert.assertEquals(bn,"name")
+
+
+//JsonObject class
+to traverse through json we need class
+
+JSONObject jo = new JSONObject(res.toString()); - converting response to json object type
+
+jo.getJSONArray("book").length() - size of array
+String bookTitle =jo.getJSONArray("book").getJSONOBJECT(i).get("title").toString();
+i = index
+
+
+day-5
+--------
+
+Parsing XML Response
+
+toString() - convert the data into string
+asString() - convert the response into string
+
+String pageNO = res.xmlpath().get("parenttag.childtag").toString();
+
+XmlPath xmlobj = new XmlPath(res.asString());
+List<String> travellers = xmlobj.getList("-----");
+
+
+
+How to automate single file upload/multiple file upload
+
+command prompt
+---------------
+ to run api in local host
+fileName = file-upload-RESTAPI.json
+
+json-server file-upload-RESTAPI.json ---------- if its json file
+
+java -jar file-upload-RESTAPI.jar ----if its jar file
+
+
+Ex:
+in postman = we got form-data there we will upload the file
+ File myfile = new File("filepath");
+given()
+.multipart("file",myfile)
+.contentType("multipart/form-data")
+
+MultipleFiles Upload
+-------------------
+
+ File file1 = new File("filepath");.
+ File file2 = new File("filepath");
+given()
+.multipart("files",file1)
+.multipart("files",file2)
+
+
+File fileArr = {file1,file2}
+.multipart("files",fileArr)
+
+
+day-6
+-----
+JSON/XML Schema Validations
+----------
+
+Response validations --data
+Schema validation - type of data
+
+Json Response(.json) ---> Json schema(.json)
+XML Response(.xml) ---> xml schema(.xsd)
+
+//json ---> jsonschema converter
+https://jsonformatter.org/json-to-jsonschema
+
+//xml to xsd converter
+https://www.convertsimple.com.convert-xml-to-xsd-xml-schema/
+
+Serialization  		= pojo --to -- json
+
+De -serilization  	= json ----POjo
+
+Body(json) ------> Request -------> Response(json)
+
+How many ways to create request body
+1) POJO
+2) HashMap
+3) Json
+4) GSOn
+
+
+Day-7
+------
+Authorizations & Authentication
+---------------------------------
+Authentication - valid or not
+Authorization - access (Permission)
+
+Types of 
+
+1.Basic	 = usernam and password is used to authenticate
+		given().auth().basic("username", "password")
+
+2.Digest     =auth().digest("username", "password")
+
+3.Preempive  = auth().preemptive().basic("username", "password")
+
+ 	1,2,3 are all same But internally logarithm is different
+
+4.Bearer token = given().header(" Authorization","Bearer "+ bearerToken)
+
+
+5.oauth 1.0,2.0 = 
+
+oauth1,o = requires 4 parameters
+given().auth().oauth("consumerKey","ConsumerSecrat","accessToken","tokenSecrate")
+
+oauth2.o - requires only single parameter = access token given().auth().oauth("access Token")
+
+
+6.API kEY: appId is APIKey
+ api will pass as a queryparameter or header based on api document
+
+
+Faker library:
+ Generate  fake data randomly runtime 
+-search Java Faker - From githHub -- add dependency to pom.xml
+
+Faker f = new Faker()
+String firstName  = f.name.FirstName(); //generate fake firstName
+
+JSON Object -- JSONArray ---> JSONObjects
+
+
+Day-8
+---------------
+API Chaining
+
+Post,get ,put,delete - These methods are created in different classes
+In order to pass to id(generated in Post method) to other methods = we use ITestContenxt context as parameter in method
+
+EXample:
+void test_POSTUser(ITestContext context)
+{
+	//context.setAttribute("user_id",id); - only test level is applicable in testNG.xml
+	context.getSuite().setAttribute("user-id",id);
+
+}
+
+void test_getUser(ITestContext context)
+{
+	//int id = (Integer) context.getAttribute("user_id);
+	int id = (Integer) context.getSuite().getAttribute("user_id);
+}
+
+
+
+Framework Developnment
+------------------------
+Objectives of framework:
+1. Re-usuability
+2. Maintainability
+3. Reliability
+
+Frame worK: Maintain all project related files
+
+Hybrid Driven
+------------
+Phases
+----------
+1) Understanding Requirement
+	-Functional specification9static)
+	- Swagger
+2) Choose automation tool - Rest Assured Library
+
+3) Design
+
+4) Developement
+
+5) Execution + CI
+
+
+Dependencies - used for downloading jar files
+plugins - used for executing or compiling the project.
+
+-----------------------------------------
+
+Pre-requisites:
+-----
+Step-1: Create Maven  Project
+Step-2: Update pom.xml with required dependencies
+Step-3: Create Folder structure
+
+-----------------
+
+
+Step-4: Create Routes.java ---> contains URL's
+
+Step-5: Create UserEndpoints.java ----> CURD methods implementations
+Step-6: Create test Cases
+
+step-7: Create data- driven test
+ 	excel sheet data
+ 	ExcelUtility
+	Dataproviders
+
+step 8: Generate extent reports
+
+	Extent reportutility
+	testng.xml file
+step 9:  Add logs
+	log4j2 dependency
+	log4j2.xml - src/test/resources
+
+log4j2 - To extract information about how the execution took place
+
+Logging is important both for developers and users of WebDriver.
+
+ Users might need to be able to find details about why a test failed, while developers might need to be able to find details of why WebDriver in itself failed.
+
+Good logging support can make these debugging tasks much easier.
+
+Step-10
+------
+Two plugin is needed to run project throught pom.xml
+1.maven compiler plugin
+2.sure-fire plugin : It used to run the test through pom.xml file
+
+Below plugin should be added to pom.xml file: 
+<build>
+	<pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.5.0</version>
+        </plugin>
+     
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.13.0</version>
+          <configuration>
+			  <suiteXmlFiles>
+				  <suiteXmlFile>testng.xml</suiteXmlFile>
+			  </suiteXmlFiles>
+            <!-- put your configurations here -->
+          </configuration>
+      </plugin>
+      </plugins>
+    </pluginManagement>
+     </build>
+
+--> Afte adding run as Maven test
+
+Step-11:
+ 
+Install Maven in window 
+Edit the path in environment variables
+
+In command prompt run a command : "mvn --version" to check the version of maven
+
+to run the project use : "mvn test"
+
+
+Step-12: push the code to GitHUB and run in jenkins
+
+
+
+
+
+
+

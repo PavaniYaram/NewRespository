@@ -1,0 +1,272 @@
+
+		Collections
+
+Collection Framework = it is a Framework provided by Java
+collection - Group of objects
+
+Array Disadvantages:
+1. Fixed ( Not Growable in Nature)
+2. Homogenous
+3. Data Structure( ready made methods is not available)
+
+To overcome above problems we have collections
+Arrays 				Collections
+1.Fixed				1. Growable in Nature
+2.Homogenous Data		2. Homogenous + Hetrogenous
+3. Not Underlying DS		3. Implements Data Strucutre( ready Made available)
+
+Interface(I) class (C)
+Collection Framework ----- 
+collection(I) = Group of object into a single entity
+collections (C)( Predefined class which is available in Java utils Package)
+
+Collection(I)
+	1.List (I) 	2. Set(I) 	3.Queue(I)
+
+* List Interface:
+1. List is Child of Collection(I)
+2. Insertion Order preserved
+3. Duplicate allowed
+
+The following classes implement List(I):
+1.Array List(C)
+2. Linked List(C)
+3. Vector(C)  7------ extends Stack 
+
+
+* Set Interface:
+1. Insertion order (Not preserved)
+2. Duplicates Not allowed
+The following classes implement Set(I):
+1. HashSet
+2. Linked HashSet
+
+* Queue(I):Group of elements which are prior to processing
+1. FIFo
+The following classes implement Queue(I): priority Queue(c)
+
+
+Map(I): data is maintained in the form of key and value pair
+Key is unique value
+value allow duplicate value
+The following classes implement Map(I): 
+1.HashMap 
+2.Linked HashMap
+3. Hash Table
+
+collection(I) methods: 1 ,2,3,4
+1.add(object o)
+2.addAll(collection c)
+3. remove(object o)
+4. removeAll(collection c)
+5. retainAll(1,4)- 2,3 elements are removed
+6.clear()
+7.isEmpty()
+8.size()
+9.contains(Object o)
+10.containsAll( Collection c)
+11.toArray(collection c) - converted into array
+
+List:
+1.add(index, object o)
+2.addAll(index, collection c)
+3.remove(index)
+4.get(index)
+5.set(index,object o) = replace existing object
+
+ArrayList(al):
+ArrayList al = new ArrayList();
+ArrayList <String>  al = new <String> ArrayList();
+to sort in arrayList we use - collections.sort(al)
+collections.sort(al, Collections.reverseOrder());
+
+collection.shuffle(al)
+Array into ArrayList conversion -
+ ArrayList al = new ArrayList(Arrays.asList(arr))
+
+Linked List:
+It can allow null values
+If we frequently use retriving operations we can use ArrayList
+If we have more no of insertion and deletion operation then we can prefer linked list.
+p x N	p y N	p z N
+
+getFirst()
+getLast()
+addFirst(obj)
+addLast(obj)
+removeFirst()
+removeLast()
+LinkedList <Integer> l = new LinkedList<Integer>();
+
+HashSet:
+hashcode concept internally used,allows null and hetreogenous data
+If more no of search operations we can use hashset
+HashSet<Integer> hs = new HashSet<Integer>();
+inital size= 16 elements we can store
+Load Factor/Fill ratio: 0.75
+if we want to fill more than 16 elements based upon load factor ratio .
+in 16 element after 16*0.75 element then new locations will added.
+
+HashSet hs = new HashSet(100); 
+HashSet hs = new HashSet(Locations, LoadFactor); 
+HashSet hs = new HashSet(100, o.95); 
+
+no index we can pass only value
+add(value)
+addAll(c)
+remove(value)
+removeAll(c)
+containsAll(..)
+isEmpty()
+
+sorting and shuffling is not possiblein hashSet(If we want sort we want to convert hashSet to arrayList then we can sort).
+
+union = set1.addAll(set2);
+intersection = set1.retainAll(set2)
+difference = set1.removeAll(set2)
+subset = set1.containsAll(set2);
+
+HashSet				Linked HashSet
+not allow Duplicates		not allow Duplicates
+Insert order is not preserved	Insert order is preseverd
+HashTable 			Hash table + Linked List
+same intial size and load factor in both hashSet and Linked HashSet
+
+Queue:
+Elements in the form of FIFO.
+
+	        	Linked List(c)	Priority Queue(c)
+Insetion order		preserved	preserve
+Duplicate		allow		allow
+Heterogenous data	allow		not
+
+Methods:
+1.add() - sucessful-True/not -Exception
+2.offer() - T/False
+
+3.element() - return head element of Queue ,empty Queue it will return exception
+4.peek() - return head element of Queue empty Queue it will return null
+
+5. remove()- return head element of Queue and remove ,empty Queue it will return exception
+6.poll()- null
+
+Exception: Classsss cast Exception - Priority Queue doesn't allow heterogenous 
+
+Map (I) :
+represent a group of object in the form of group value pair
+* Duplicate Keys are not allowed
+* Duplicate values are not allowed
+Entry = key + value
+Map is collection of Entry
+
+HashMap(c): prefer more no of search operations
+* Underlying DataStructure is HashTable
+* Insertion order is not preserved
+* Duplicate Keys -not allowed
+* Duplicate values - allowed
+* Null key allowed once
+* Null values - multiple
+Hashmap m = new Hashmap();
+m.put(key,value)
+m.putAll(map m1)
+m.get(key) -> return value
+m.remove(key)
+m.containskey(key) - T/F
+m.containsvalue(value) - T/F
+m.isEmpty() - T/F
+m.size()
+m.clear()
+m.keyset() - return Set object which contains all keys of map
+m.values - return all values of map in the form of collections
+m.entryset() - return all entries of map in the form of set
+
+ interface hashmap
+    {
+ 	interface entry
+		{
+		}   
+    }
+
+after get entry(e)
+e.getKey()
+e.getValue()
+e.setvalue(object) - update  or change the value
+
+HashTable:
+1.(Key,value)
+2. Underlying Ds(hashtable)
+Hashmap				HashTable(Leagacies)
+1.Not synchronized		1.synchronized
+2.multiple threads allowed	2.One thread allowed at a time
+3.Not thread safe		3.thread safe
+4.Performance faster		4.performance poor
+5.(key,value) 			5.Null cannot accept
+ key - one time Null
+ value - Multiple value
+
+Hashtable t = new Hashtable(initial capacitym fill ratio/load factor);
+NullPointerException: hashtable cann't pass null values
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

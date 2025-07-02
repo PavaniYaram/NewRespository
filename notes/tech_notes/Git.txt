@@ -1,0 +1,333 @@
+Git
+------------
+Version Control System(vcs): A software which is used to
+i. Maintaing versions
+ii. Tracking 
+iii. Share the software
+
+Two types of VCS: 
+1. Centralized Version control system
+	* old process
+	* single server present
+
+	 pc1       ----commmit------>       single server
+(working copy)     <-------check out---
+
+	 pc2 	---------------->
+		<-----------------
+
+
+2. Distributed control system :
+
+dev1 -- Local Repository1 ----push----> Remote Repository(gitHub)
+
+dev2 -- Local Repository2 <---Pull-----     ||
+(git)
+
+
+What is Git?
+ Git is a Distributed control system
+
+Architecture of git:
+1. Working Directory - Unchecked Files
+	|
+        |add
+	|
+2. Staging/ Index area - Traced File
+	|
+        |commit
+	|
+
+3. Git Local Repository - Committed File
+	|
+	|push	|
+	|	|pull (Clone)
+		|
+
+4. GitHub Remote Repository - Remote File
+
+
+How to install Git command
+pwd - current location
+clear - to clear
+ls - files present in current location
+cd "target" - to move to target location
+
+
+Git Commands
+-------------
+1) init
+2) status
+3) add
+4) commit
+5) log
+6) config
+
+git init - creating git respository
+git status - show the status of files
+git add <fileName> 
+
+{ // Before doing first commit we have to metion below statement
+
+ 	git config --global user.email "pavani.yaram@britishgas.co.uk"
+ git config --global user.name "Yaram2001"
+}
+
+git commit -m "this is my first commit"
+git log  = show how many commits and their information 
+
+git commit -a -m "both files are modified...."a
+
+
+
+
+GIT Commands
+--------------
+git diff - comparing the files in VCS
+
+working dir ---> Staging ---> local repo --->remot repo
+
+
+vim "index.txt" = to create file by using Git bash
+
+
+Req1: To see the difference in File Content between working Directory and staging Area
+
+git diff fileName
+
+diff --git a/file1.txt b/file1.txt
+index c278a75..9ae4c5e 100644
+--- a/file1.txt
++++ b/file1.txt
+@@ -1 +1,2 @@
+ This is file1
++ Animals
+
+
+a/file1.txt  ---> represents source(staging area)
+b/file1.txt  ---> represents destination(working dir)
+c278a75      ---> hash of file content from source/staging
+..9ae4c5e    ---> hash of file content from source/staging
+
+100644	  --> git file mode
+ 	100 -- represents type of the file
+	644 -- File permissions  rw-r-r
+	4-r
+	2-w
+	1-e
+ owner ,Group, ,user
+
+--- a/file1.txt  Source file missing some lines(staging)
++++ b/file1.txt  New lines added in destination file (working dir)
+
+	if anyline prefixed with space means it is unchanged
+	if anyline prefixed with + means it is added in destination copy
+	if anyline prefixed with - means it is removed from destination copy.
+
+
+Req2: To see the difference in File Content between working Directory and (Local Repository) Last commit
+
+*Last commit refred using HEAD
+
+git diff HEAD fileName
+
+Req3: To see the difference in File Content between Staged copy  and Last Commit
+
+git diff --staged HEAD fileName
+git diff -- chached HEAD fileName
+
+Req4: To see the difference in File Content between specific Commit and Working Directory copy
+
+git log --oneline  = This command will give id's of all commit
+git diff commitId fileName
+
+Ex : git diff doff720 index.txt
+
+Req5: To see the difference in file content between specific commit and staging are copy
+
+git diff --staged commitId
+Ex: git diff --stage doff720
+
+Req6: To see the difference in File Content between 2 specified Commits
+
+ git diff commitId_1 commitId-2 fileName
+ Ex: git diff bb859a8 doff720 index.txt
+
+Req7: To see the difference in Content between 2 Branches
+
+Master branch
+Test branch
+
+git diff master test
+
+req8: To see the differences in Content between Local and Remote Repositories
+
+ git diff master origin/master
+
+Git Command:
+--------------
+ git rm = to remove the files
+
+ls = shows the files in working directory
+git ls-files = show the files in stagging area
+
+Req1: Remove the files from both staging & working directory
+ 
+git rm file1.txt = to remove specific files
+git rm -r . = to remove all files
+
+Req2: Remove files from only from staging
+
+ git rm --cached file2.txt
+
+req3: Remove files only working directory
+ rm file3.txt
+
+git checkout command
+----------------------
+ we can use checkout command to discard unstaged changes in the tracked files of working directory
+
+1) Only for working directory
+2) To discard unstaged changes(The changes which are not added to staging area)
+3) In the tracked files(The files which are already added to staging area/commit
+
+to know the content of the file
+command: cat file1.txt
+
+git checkout -- file1.txt
+
+
+How to save file in git rebase: 
+ vim fileName.txt
+press Insert to get inset mode
+ Press esc to exit edit mode and type :wq to save the file
+
+
+
+part8
+-----------
+git reset Command
+-------------------------
+1) To remove changes from staging area
+	git reset <fileName>
+2) To undo commits at repository level
+ 	git reset <mode> <commitId>
+
+Moves the HEAD to the specified commit, and all remaining recent commits will be removed.
+mode will decide whether these changes are going to remove from staging area and working directory or not
+
+
+Types of mode
+------------
+--mixed
+--soft
+--hard
+
+1) reset with --mixed Mode:
+	It is the default mode.
+	To discard commits in the local repository and to discard changed in staging area.
+	It will not touch working directory
+
+git reset --mixed commitId2 - above that commitId's 3,4,5 are discarded.
+
+2)reset with --soft Option:
+	It is exactly same as --mixed option, but changes are available in working directory as well as in staging area.
+	It won't touch staging area and working directory.
+As changes already present in staging, just we have to use commit to revert back.
+
+git reset --soft
+
+3) reset with --hard:
+	It is exactly same as --mixed except that Changes will be removed from everywhere (local repository, staging area,working directory)
+	It is impossible to revert back and hence while using hard reset we have to take special care.
+
+Part-8
+-------------
+
+Git Branching Commands:
+------------------------
+After commit then only we can use create branches
+
+1) To view available branches
+	git branch
+	git status
+2) Create new branch
+	git branch branchName
+3) Switch to from one branch to another nranch
+ git checkout ==> discard unstaged changes in working director
+ 	git checkout branchName
+4) creating & switching to branch
+	git checkout -b branchName
+
+to create multiple files command used = touch b.txt c.txt
+
+git add b.txt;git commit -m"b.txt:"
+
+<-------------- while practising the files created in one braches is also available in another  branches, master 
+
+Part-9
+--------
+Git Commands Merging
+-----------------------
+1) Fast-forward Merge - No conflicts
+
+2) Three way Merge -
+
+$ git merge feature
+
+
+
+Part-10
+----------
+
+Rsolve Merge Conflicts
+-----------------------
+
+"CONFLICT (content): Merge conflict in test.txt"
+
+after merging we can get above error to slove we edit test.txt file and commit the file
+
+git log --oneline --graph = if we want to see graph of the commit
+
+How to remove features branch = git branch -d brachName
+
+Part-11
+----------
+
+Git Rebase
+------------
+
+step1: git rebase master
+
+step2: git merge features
+
+Git Merge lets you merge different Git branches. 
+Git Rebase allows you to integrate the changes from one branch into another.
+Git Merge logs show you the complete history of commit merging. 
+Git Rebase logs are linear
+
+Part12
+----------
+
+What is Github?
+
+.GitHub is a hosting service for git repositories
+.Git is the tool, while GitHub is the service to use git
+
+clone = git clone "remoteURL"
+pull = git pull origin main
+push = git push origin main
+
+
+
+Part13
+----------
+How to work with Remote repositories through Eclipse & Intellij IDE's
+-----------------------------------------------------------
+Eclipse
+
+
+To cancel rebase = rm -fr ".git/rebase-merge"
+
+
+

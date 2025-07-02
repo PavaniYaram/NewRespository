@@ -1,0 +1,114 @@
+JAVA Script
+--------------
+
+.js = extension 
+
+console.log("Hello world")
+
+//single comment
+/*
+Multiple
+comments
+*/
+
+In javascript there is no need for declaration datatype.At the run time it has intelligence to identify datatype of the variable.
+
+var a= 4 ---in old version to declare variable
+
+const , let - new version to declare variable
+
+let a = 53
+let 
+we cannot redeclare variable with let keyword but possible with var
+
+loops
+
+Arrays
+------------
+let marks = Array(6)
+var marks = new Array(20,53,2,53,53);
+
+var marks =[10,20,30,40,50]
+
+
+push() - to add element
+pop() - to delete last element
+unshift() - to add element inthe begining of the array
+indexOf() - to know index of element
+includes() - to check element is present in array or not
+slice(begin index, last index) = to create sub array
+
+
+reduce and filter map
+
+var scores = [1,2,3,4,5]
+let total = score.reduce((sum,mark)=>sum+mark,0) //15
+
+let newfilterScores = scores.filter(score=> score%2==0)//[2,4]
+
+When to use reduce -->iterate + update values scenario
+When to use filter --> filter the values based on conditions.
+
+//map - modified each and array value into new values
+let mapArray =score.map(score => score*3)//[2,4,6,8,10]
+
+let sumValue = scores.filter(score=> score%2==0).map(score => score*3).reduce((sum,mark)=>sum+mark,0) //18
+
+
+
+Sorting Array values in Java Script
+------------------------------------
+
+let fruits = ["banana", "mango", "apple"]
+fruits.sort(); //["apple","banana", "mango"]
+fruits.reverse(); //descending order
+
+var score= [12,003, 19,65,21]
+score.sort() //[12, 19, 21,65,3]
+
+score .sort(function(a,b){ return a-b}) or
+score.sort((a,b) => a-b)
+
+Functions
+---------
+
+function add(a,b)
+{
+ return a+b
+}
+let sum = add(2,3)
+console.log(sum)
+
+
+let sumofNumbers = function add(c,d)
+{
+ return c+d
+}
+console.log(sumofNumbers)
+
+
+//do not have name => Anyonymus function -- Function expressions
+
+let sumO= (c,d)=> c+d
+console.log(sumO(2,3))
+
+Keywords - var,let,const
+--------------------------
+
+var - global level/functional
+let - globall level/block level{}
+
+String and Manipulation methods
+----------------------------------
+
+Number to string - toString()
+string to Number - parseInt()
+split() - used to split the string 
+trim() - remove spaces in string
+
+
+
+
+
+
+

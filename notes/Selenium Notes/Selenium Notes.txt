@@ -1,0 +1,345 @@
+What is Selenium?
+Selenium is open source UI Automation tool
+Selenium is used to Automate the web application
+Selenium is not used for Desk-Top Base Application id Automation
+Selenium was created in 2004 by an ThoughtWorks Engineer.
+Selenium web-driver was introduced in 2006
+
+Components ofSelenium:
+Selenium IDE
+Selenium Rc
+Selenium WebDriver
+Selenium Grid
+
+1.Selenium IDE is Record and play base Tool.
+2.Selenium IDE is basically a Browser plugin, Which is compatible with Mozilla Only.
+3.Its easy to learn,use and Install.
+4.User is not allowed to Put Conditions in IDES
+
+Selenium Rc:
+Rc stands for Remote Control.
+RC is the first automated web testing tool that allowed users to use a programming language they prefer.
+User is allowed to use Java, C#,PHP,Perl,Ruby,and Python with Selenium RC.
+
+
+Pros			            				 cons
+Cross Browser and Platform   					 More Complicated the IDE
+Perform Lopps and Conditional Statements  			Programming Knowledge is Must
+Data Drivern Testing is Possible 				Selenium RC server needs to be run to start the execution
+Can support Multiple Browser 					slower then Selenium IDE and poor support of Java Script
+
+
+Selenium WebDriver is better than Selenium IDE AND RC.
+SeLENIUM webDriver is nore stable than RC.
+WebDriver,Unlike Selenium Rc,does not rely on Java Script for Automation.It Controls the browser by directly communicatng with it.
+Selenium WD  supports multiple Progrmming language.Java,C# ,Python,PHP,Perl,Ruby
+
+Selenium Grid:
+It is tool to use for Parallel Execution.
+Selenium grid is Compatible with RC and WD both.
+It works like an Execution Engine for Selenium Tests.
+Enables simultaneous running of tests in multiple browsers and environments.
+Utilizes the hub-and- nodes concept.The hub acts as a central source of Selenium commands to each node connected to it.
+
+
+Selenium 4- new features 
+1. new relative locators ---  ToLeft Of, To Right Of,Above, Below. 
+2. Support for chrome Debugging Protocol.
+3. Better window /Tab Management
+driver.switchTo().newWindow(Window.Type.WINDOW);
+driver.switchTo().newWindow(WindowType.TAB);
+
+4.Modifications in the Actions Class-
+click(WebElement) <----- moveToElement(onElement).click()
+clickAndHold(WebElement) <----- moveToElement(onElement).clickAndHold();
+contextClick(WebElement).contextClick() ---right click operation
+doubleClick(WebElement) <----- moveToElement(element).doubleClick()
+
+
+Options Class:
+
+
+        
+
+CSS Selector :
+ ID = <HTML TAG><#><Value ofID attribute>
+#idName or input#idName
+
+Class = <HTML tag><.><Value of Class attribute>
+.className or div.classname
+
+Attribute = <HTML Tag><[attribute = Value of Class attriute]>
+
+input[type='Search']
+
+
+Customized xpath:
+
+Create Combined XPath = //input[@type=text' and @name='firstname']'
+
+text() function : //span[text()='Create an account']
+
+Parent Child Relation XPath:
+
+
+//div[@id='navbar-collapse']/ul/li/a[text()='Features']
+//div[@id='navbar-collapse']//a[text()='Features']
+
+
+
+WlidCard Search in Xpath:
+It is used to identify 
+1.How many webelements present in input tag  or  inputs fields available in particular webpage
+
+//* = matches all the present elements present in the html
+
+//div/*= matches all the immediate elements(s) inside the div tag
+
+//input[@*]= matches all the element(s) with input tag and have at least one attribute
+
+//*[@*] = matches all the element which have at least one attribute.
+
+
+
+
+Independent and dependent xpath:
+
+ //td[text()="QTP']/..//input   .. present parent
+
+Contains() = helps to identify dynamic changing values
+ //htmlTag[contains(@id,'value')]
+
+Normalize space in Xpath:
+if there is spaces in text
+//button[normalize-space(text())='Selenium']  selenium 
+
+Starts-with() in Xpath:
+//htmltag[starts-with(@attribute,'value')]
+
+ends-with() in Xpath:
+//htmltag[ends-with("attribute,'value')]
+
+
+Axes in XPaths:21
+relations  5 = Ancestor --- ancestor,ancestor-or-self
+		Parent --- parent
+		Sibling --- preceding-sibling , following -sibling
+		Child --- child ,
+(grand children ,children )Descendant --- descendant , descendant-or-self
+
+
+
+
+find one tool which help us to do cross browser testing (apart from perfecto) and load testing 
+
+Selenium server standalone -- Question
+
+xpath = //tagname[@attribute='value']
+
+Xpath
+--------------
+Forward Axis:
+
+Self: Select the Current Node
+//div/self::* = div fields of 1c
+
+attribute: Select All attribute of current Node
+//div/attribute::* =Elements have div HTML tag and atleast one HTML Attribute
+
+
+Child: Select All children of Current Node
+//div[@id='divHomepageContainer']/child::* = Child of all Homepage id 
+h
+descendant: Selects all descendants(children, grandchildren, etc.)of the current node.
+//div[@id='divHomepageContainer']/descendant::*
+
+
+Descendant -or -self: Select all descendants(children, grandchildren, etc.)of the current node and the current node itself
+//div[@id='divHomepageContainer']/descendant-or-self::*
+
+Following-sibling: Select all siblings after the current node
+//div[@id='divHomepageContainer']/following-sibling::*
+
+//div[@class="hotAppIcon"]/following-sibling::div[@aria-label='Talent Market Place Opens in a new tab']/div
+
+
+
+Following: Selects everything in the document after the closing tag of the current node
+//div[@id='divHomepageContainer']/following::*
+
+//div[@class="hotAppIcon"]/following::div[text()="Talent Market Place"]
+
+
+ReverseAxis:
+
+Parent: Selects the parent of the current node
+//div[@id='divHomepageContainer']/parent::*
+
+Ancestor: Selects all ancestors(parent, grandparent, etc.) of the current node.
+//div[@id='divHomepageContainer']/ancestor::*
+
+Ancestor -or -self: Selects all ancestors(parent,grandparent,etc.) of the current node and the current node itself
+//div[@id='divHomepageContainer']/ancestor-or-self::*
+
+preceding-sibling: Select all siblings before the current node.
+//div[@id='divHomepageContainer']/preceding-sibling::*
+
+
+Wlid Card CSS Selector:
+
+1) ^(carrat Character): input[id^='username'] -end part is changing username98009
+2)$(Dollor Character): label[abc$='_abcd'] - first part is Dynamic 983040_abcd
+3)* (Asterisk Character): tag[attribute* ='value'] - Middle value is fixed
+
+
+
+//tagName[@Attribute='va
+
+
+Automation
+----------------
+
+How to capture screenshot?
+1) full page
+2) particular part
+
+TakesScreenshot  ts = (TakesScreeenshot)driver;
+File sourcefile = ts.getScreenshot(OutputType.FILE);
+File targetfile = new File("filepath");
+sourcefile.renameTo(targetfile);
+
+2) Capture the screenshot for specific section
+
+WebElement f =  particular xpath for specific section
+File sourcefile = f.getScreenshot(OutputType.FILE);
+File targetfile = new File("filepath");
+sourcefile.renameTo(targetfile);
+
+3)  capture the screenshot of webElement
+
+ChromeOptions
+EdgeOptions
+FirefoxOptions
+etc....
+
+ChromeOptions:
+---------------
+
+1)Headless testing 
+-----------------------------------------------------------
+- without seeing UI the testing happened in backened is called Headless testing
+
+ChromeOptions option = new ChromeOptions();
+options.addArgument("--headless=new");
+WebDriver driver = new ChromeDriver(options);
+
+Advantages
+----------
+1) we can do mutiple tasks (since execution happend backend)
+2) faster execution
+
+disadvantage
+-----------
+1) user cannot see the actions on th page. so he cannot understand flow/functionality of the test.
+
+2) SSL Handling:
+-----------------------------------------------------------
+SSL - Secure sockets Layer
+ to access some web browser we need some ssl certificates
+
+ChromeOptions option = new ChromeOptions();
+options.setAcceptInsecureCerts(true);// accepts SSL Certificates
+WebDriver driver = new ChromeDriver(options);
+
+
+3) How to remove "Chrome is being controlled by atuomated test software"
+-----------------------------------------------------------------------
+
+ChromeOptions option = new ChromeOptions();
+options.setExperiementalOption("excludeSwitches",new String[] {"enable-automation"});
+
+
+4) To run the tests in Incognito mode
+---------------------------------------
+ChromeOptions option = new ChromeOptions();
+options.addArgument("--incognito");
+
+5) EnableExtension at Runtime
+---------------------------------------
+step1 : Add CRX Extractor/Downloader to chrome browser (manually)
+step2 : Add Selectors Hub plugin to chrome browser(manually)
+step3 : capture crx file for selectorshub extension
+step4 : pass crx file path in automation script in chrome options
+
+ChromeOptions option = new ChromeOptions();
+File file = new File("crx file path for selectorshub extension")
+options.addExtensions(file);
+
+uBlock-Origin plugins(add Blocker) - used to block all adds
+
+Broken Links
+------------
+
+Definiton : Broken link is a link which doesn't have any resource in the server.
+
+1) link href="url"
+2) url ---> server ---> status code
+3) status code >=400 broken link
+ status code <400 not a btoken link
+
+//hit url to the server
+try{
+
+URL linkURL = new URL(href_value); --> Converted href value from string to url format
+
+HttpURLConnection conn = (HttpURL Connection) linkURL.openconnection() --> open connection to the server
+conn.connect(); // connect to server and sent request the server
+
+int statusCode = conn.getResponseCode();
+
+}catch(Execption e)
+{}
+
+
+Shandow DOM
+--------------
+
+DOM - Document object model
+
+To load main DOM and smaller (SHADOW ) DOM - The purpose of this to make website faster and improve performance.
+
+XPath cannot handle shadow dom elements.
+Only CSS can handle shadow dom elements
+
+
+SearchContext is the topmost interface in Selenium API which has two methods - findElement() and findElements()
+
+Selenium WebDriver interface has many abstract methods like get(String url), quit(), close(), getWindowHandle(), getWindowHandles(), getTitle() 
+
+SearchContext shadow = driver.findElement(By.cssSelector("")).getShadowRoot();
+Thread.sleep(1000);
+shadow.findElement(By.cssSelector(""));
+
+
+Handle svg Elements
+-----------------------
+In svg element we should compulsory use name Attribute in xpath.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,83 @@
+Selenium  - By pavan kumar
+------------------------------
+
+Section-1
+---------
+
+Selenium support language : C#, Ruby, python , JavaScriptm Java
+
+Selenium support Browsers : chrome, edge, safari , opera, firefox , Internet Explorer
+
+operationg system : Microsoft winows, macOs,Linux
+
+
+What is selenium webDriver?
+----------------------
+1) WebDriver is one of the component in selenium.
+2) WebDriver is a Java Interface.
+3) WebDriver is an API
+
+WebDriver(I) --Remote WebDriver (class)--(extended class) ChromeDriver ,FirefoxDriver,EdgeDriver etc.
+
+
+API -Application Programming Interface
+
+Presentation Layer
+Application Layer
+Database Layer
+
+Environment setup
+-------------------
+1) Downloading jars files and attaching them to Java project(Manually) - Not recomended
+
+--> Created new Java project
+--> downloaded webdriver jars(.zip) and extracted.
+--> attach jars to java project.
+
+
+2) Creating Maven project(Recomended)
+
+--> Created a new Maven project in eclipse
+--> added webDriver dependency in pom.xml --> update the project.
+
+simple project - validate title of google page 
+
+selenium 4 hirearch:
+SearchContext(I) extends WebDriver(I)
+ WebDriver  --> RemoteWebDriver ---> Chromium ---> 1.chromeDriver, 2. Edge Driver
+  
+
+Section-2
+-------------
+
+id
+name
+linkText
+partialLinkText
+TagName
+classname
+
+CSS selector
+XPath
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

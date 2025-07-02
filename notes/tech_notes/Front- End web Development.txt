@@ -1,0 +1,458 @@
+Learn Complete Front- End web Development course:
+
+choosing the right browser
+> Google Chrome
+> Mozilla Firefox 
+> Opera Browser
+> Safari Browser
+> Brave Browser
+
+html5test.com
+
+choosing the right code Editor
+
+Word Processors(Don't use):
+> Microsoft word
+> Google Docs
+> Apple Pages
+> Libre Office
+> WPS Office
+> AbiWord 
+> Zoho Writer
+> OnlyOffice
+> SoftMaker Free Office Text Maket
+> Apache Open Office Writer, and more
+
+Code Editors:
+> Visual Studio code
+> Sublime Text
+> Atom
+> Notepad ++
+> Brackets
+> Vim 
+> Emacs
+> JetBrains IntelliJ IDEA
+> Eclipse
+> Netbeans
+
+chossing the right Code Editor
+> Support for Programming Languages
+> Syntax Highlighting
+> code Completion
+> Features
+> Easy of use
+> Community Support
+
+Download Install VS(Visual Studio) code - Install Github theme
+
+What is HTML?
+> Websites
+> Apps
+> Many other software's and
+> Anywhere web technology is used
+
+Everything on the web: reqiures HTML
+> Words
+> Images
+> Videos
+> Audios
+> Other Media
+> Interactive Forms and more
+
+The Language
+> How many Languages are out there?
+> More than 1000
+> Understand Each Other
+> Share Information
+> Computers talk to each other
+> Markup Language
+> HTML OR Hyper text mark up language
+
+HTML
+> Hypertext markup Language
+> Marks ups the content
+> Tells the browser what things are
+> Functionality that us built -into the browser
+> HTML Gives us direct access
+> How do we access it?
+> Through using HTML
+
+CSS
+> Cascading Style sheets
+> Color, Typography and Size
+> Add Animation, Interactions, and customization
+
+JavaScript
+> Complex Interactivity
+> Website that has complex interactivity
+> Complex JavaScript to make that website
+
+Why the Web uses multiple languages?
+> why 3 languages Why not just one?
+> Web is different than other software's
+> Build today & expect it to work after 10 years
+> Works in older PC's and older Browsers
+> Runs on multiple platforms
+ .Windows, Linux, Android,MAC,IOS,E-Book readers, Tv's Watches and more
+> Web can run in some form of action
+> The point of web, and the reaon it was invented
+> Different types of devices
+
+Role of HTML:
+> HTML is simple
+> No programming logic, no lopps, no functions
+> Declarative Language
+> Because of its simplicty HTML is popular
+> Missed a closing tag of something?
+> HTML  will ignore the error
+> HTML will continue with remaining code
+
+Role of CSS:
+> its has some rules
+> Error in style, that style will not be applied
+> Continue to render other styles
+
+Role of JavaScript
+> Powerful Language
+> Numerous Rules
+> Sensitive
+> Wrong with the code, it will go no further
+
+What should a Developer must Know?
+> You should learn all 3 languages
+> Complete power over buliding great websites
+> If you can do something is HTML, do it.
+> If not use other languages
+
+HTML (Hypertext Markup Language) is primarily used for structuring and defining the content of a web page. It provides the framework for organizing text, images, links, and other elements on a webpage. 
+While CSS handles styling, server-side logic involves languages like PHP or JavaScript, and user interactions often rely on JavaScript or other client-side technologies. HTML lays the foundation for all web content.
+
+The Syntax:
+<P>
+> "p" stands for paragraph
+> Less than sign "<"
+> A letter ,a word , or an abbreviation "p"
+> Greater than sign ">"
+> Makes a HTML Tag
+
+Two parts
+> The opening tag
+> The Closing tag ( has a Forward Slash)
+Example:
+	<p>
+		This is Paragraph -------> Element
+	</p>
+Purpose & Meaning
+> Every Element Conveys Purpose
+> Each tags have special meaning
+
+Nested HTML Elements:
+
+ To create Dummy tags = lorem*3 = 3 paragraphs
+
+Headings in HTML :
+> Headings
+> Sub-headings
+> Help understand what's on the page
+> which paragraph belongs to which section
+
+Important Headings
+> search pages
+> Archives
+> headings are the content
+
+Headings Tags- 6
+> h1
+> h2
+> h3
+> h4
+> h5
+> h6
+
+<h1>Heading 1<h1>
+<h2>Heading 2<h2>
+<h3>Heading 3<h3>	==	h${heading $}*6
+<h4>Heading 4<h4>
+<h5>Heading 5<h5>
+<h6>Heading 6<h6>
+
+Design System:
+> Many design systems
+> Bootstrap
+> Material Design
+
+Bolds & Italics
+> 4 Elements
+> 2 for Bolds
+> 2 for Italics
+
+Bolds
+.<b> Tag
+ . Visually styling
+.<strong> Tag
+  . Importance, Urgency and Seriousness
+
+Lists:
+. Menu Bars
+. Dropdowns
+. Sidebars
+
+Types of Lists
+. Unordered Lists (ul)(ol)(li)
+. Ordered Lists (ol)
+. Defintion Lists (dl),(dt)(dd)
+
+<ul>
+<li> stars </li>
+<li> moon </li>
+<li> sun </li>
+</ul>
+Types of Elements: <em>
+1. Inline Elements
+	.<b> Tag
+	.<em> Tag
+
+2. Block Elements
+	.<h1> Tag
+	.<p> Tag
+	.<ul> Tag
+Block Quotes:
+. Block Elements
+. Headings,Paragraphs, images and
+. Citation
+Inline Quotes
+. Written inline
+ <q> hello world</q> = "hello world"
+<cite>- Albert Einstein </cite>
+
+Date and Time in HTML
+. <time> tag
+. <time> January 1 </time>
+. <time> Jan 1 </time>
+. <time> Jan 1, 2025 </time>
+. <time> 1 Jan 2025 </time>
+. <time> On the 1st of Jan 2025 </time>
+
+Attributes
+. Additional Information that we provide to the HTML tag
+datetime attribute
+<time datetime= "2025-01-01"> January 1 </time>
+<time datetime ="07.00">7:00 am</time>
+<time datetime ="20.00">8:00 pm</time>
+<time datetime ="12.30">Half past noon</time>
+<time datetime ="14:15:28.5">14:15: 28.5</time>
+<time datetime ="13:45+05:30"> 1:45 pm in India</time>
+<time datetime ="2023-04-04T19.00">Tuesday April 2023 at 7pm</time>
+<time datetime ="2023-04-04 19:00+05:30">Tuesday April 2023 at 7pm</time>
+
+kbd code Pre and Br tag
+------------------------
+kbd - keyboard
+<p>  
+	You can use <kbd> Shift + Alt + Down </kbd> Arrow to duplicate a line in VS code
+</P> 
+
+<p>
+ 	You need to use <code>&lt;h2&gt;</code> tag after the <code>&lt;h1&gt;</code> tag.
+</p>
+
+line breaks - <br>
+pre formatted tag - <pre></pre>
+
+SubScript: below the normal baseline
+	H<sub>2</sub>O
+SuperScript : above the normal baseline
+	(a+b)<sup>2</sup> = a<sup>2</sup>+2ab+b<sup>2</sup>
+
+
+HTML ESSENTIALS:
+Attributes in Html:
+. 4 Global Attributes
+Class Attribute
+. Reusable name
+. Used on any element
+ID Attribute:
+. Uses unique names
+. Use them only once in a page
+. Helpful in JavaScript
+
+<p class="intro", id ="section-1">
+ This is a introduction
+</p>
+
+Content Editable:
+------------------
+.contenteditable= "true"
+.Edit any content
+
+Other Attributes:
+----------------
+.lang = "en"
+.dir="ltr" or dir ="rtl"
+
+4 Global Attributes
+--------------------
+.class
+.ID
+.Lang
+.DIR
+
+ARIA Attribute
+---------------
+. Accessible Rich Internet Applicatins
+. Provide more meaning
+. Helpful for people with disabilities
+. Accessibility
+
+ Blank Spaces:
+--------------
+. Some exceptions to formatting
+<pre>
+<code>
+<textarea>
+HTML Entity &nbsp; - Non breaking space
+<br> Tag - Break Tag
+ 
+Documenting:
+-----------
+.Process of creating comments, or documenting what a code means in comment
+. Comment tag:
+<!-- Your Comment -->
+
+Uppercase & Lowercase
+----------------------
+. In the begining tags were capitalized
+. HTML Evolved
+. Lowercases to write both HTML and Content
+. It really doesn't matter
+Types of Tags
+-----------
+what about the closing tags
+older elements doesn't close tags
+Non Breaking Space
+------------------
+. Add extra spaces
+. No to break the space
+Links & Anchor Tag
+-------------------
+. Move from one page to another
+. Make something clickable
+. Jump to sections of a page
+. Browse the web
+
+Creating Links
+--------------
+.<a> Tag
+. href attribute
+. HyperText Reference
+
+Absolute URL's:
+---------------
+. Uniform Resource Locator
+. Basically look like A Domain, A Website, A Webpage
+Relative URL's
+----------------
+. Same page inside the same website
+
+Organizing Files
+----------------
+. Well-organized file structure
+. Maintaining the website
+. Editing is much simpler
+How to Organize
+---------------
+. HTML Files
+. Images
+. CSS Files and
+. JavaScript Files
+Naming Files
+------------
+. main page
+. home page
+main.html(xxxxx) index.html
+Other File Names
+-------------------
+.Styles
+ .Custom-styles.css
+ .Main-style.css or
+ .Style.css
+
+.Pages
+ .About.html
+ .Services.html
+ .Products.html
+ . Blog.html
+ . Post.html
+Always name page based on purpose
+
+HTML Navigation:
+---------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+

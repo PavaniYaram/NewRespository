@@ -1,0 +1,43 @@
+Git and GitHub:
+G- referring to the entire project
+g - referring to command
+
+History of Git:
+Linus Developed the basic foundation of git
+If you want to view the source code, Git itself is hosted on GitHub: https://github.com/git/git
+
+GitHub:
+* started in 2007
+* as an internet hosting service for software development and          version control using Git.
+
+.Git is the open source software that actually manages the git command as a VCS
+* We will call it at the command line with commands such as : git push.
+
+You can check the current configuration with the commands:
+. git config --global user.name 
+. git config --global user.email
+
+The main place we track changes and manages our files that are using Git is called a repository.
+
+How can we create a Git Repository?
+* git init
+ > This command initializes a Git Repository on your local machine.
+ > You only need to run this command once per project.
+
+* git status
+ > This command will report back the status of your Git repository.
+ > Upon creating a repository with git init you will create a hidden .git file
+ > The .git file is a hidden file that manages the versioning of the files inside the Git repository.
+
+* gitclone
+clone Syntax with PAT:
+ git clone https://token@github.com/account/repo.git
+
+
+
+
+
+
+
+
+

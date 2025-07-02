@@ -1,0 +1,551 @@
+API Testing Introduction
+-------------------------
+Client :- It is a computer or from where we are trying to  access the application.
+Server :- Which contains actual application or software will run ont he server.
+
+Client/Server Architecture
+--------------------------
+Three tier 
+
+Types of API:
+ There are two types of API's,:
+1.Simple Object Access Protocol(SOAP)
+2. REST (Representational State Transfer).
+Both are the web services.
+
+. Web Service is an  API  wrapped in HTTP.
+API's that is available on the interent is called webservices
+All Webservices are API's.But API's are not webservices.
+. A Web Service needs a network while an API doesn't need a network for its operation.
+
+
+REST API HTTP Methods:
+GET	- Receive information about an API resource - 200
+POST	- Create an API resource - 201
+PUT	- Update an API resource - 200
+DELETE	- Delete an API RESOURECE - 204(No Content)
+
+https: = more secure
+http =  not secure easy to hack
+
+Terminologies
+--------------
+
+scheme = protocol
+		   <--path-><--resource->	
+<scheme><--Host---><---endpoint-------->
+https://google.com/articles/articlename
+			    ----URN----
+	----------------URI------------
+--------------------URL-----------------
+ URI - Uniform Resource Identifier
+ URL - Uniform Resource Locator
+ URN - Uniform Resource Name
+
+Feature & Resource:
+ 'Feature' is the term used in manual testing to test some functionality and similarly "Resource' is the term used in API Automation testing referring some functionality.
+
+Payload:
+ payload means body in the HTTP request and response message.
+. Request Payload
+. Response Payload
+
+
+Day2
+------------
+Postman - API testing tool
+we can do manual testing of API's using postman
+
+workspace: area where we maintain files and saved.
+|---create a new workspace, rename, delete
+
+collection - contains number of folders and htpp requests
+  create, rename, delete , run the collection
+we can create any number of collections under workspace.
+
+Request -----> API -------> response
+
+
+http requests
+---------------
+Get Post Put Delete
+ Patch -- update partial details of resource
+
+sample API:
+
+https://reqres.in  /api/users		?page=2
+<----host-------->  <path_parameters>   <Query parameter>
+   domain
+
+
+Query parameter = 
+
+Validations
+-------------
+status code
+time 
+size data
+response body(json/xml)
+headers
+cookies
+
+http status codes
+------------------
+3 levels
+
+1xx - Informational response
+2xx - success responses
+3xx - redirection response - indicate client need additional information to fulfill request
+4xx - client error responses
+5xx - server error responses
+
+
+Level 200:
+200: Ok
+201: Created
+202: Accepted
+203: Non-Authoritative information
+204: No content
+
+Level 400:
+400: Bad Request
+401: Unauthorized
+403: Forbidden
+404: Not Found
+409: Conflict
+
+Level 500:
+500: Internet Server Error
+501: Not Implemented
+502: Bad Gateway
+503: Service Unavailable
+504: Gateway Timeout
+599: Nerwork Timeout
+
+Day-3
+--------
+
+Creating our own API's
+-----------------------
+if we want to create own API's we need to install below software
+
+step1) NodeJS
+npm - node package manager
+
+execute two commands below:
+node  --version
+npm   --version
+
+step2) json- server
+run the below command in the cmd/terminal
+  npm install -g json -server
+
+tests/Validations
+------------------
+ JSON - Java Script Object Notation
+. JSON is a syntax for storing and exchanging data
+. designed for human-readable data interchange
+. extended from the JavaScript scripting language
+. filename extension is .json
+. Json internet Media type is application/json
+
+Advantages of  Json:
+. It is light  weighted it takes less time to travel from client to server
+. It is encrypted and decrypted
+. json (rest) preferred over xml(soap)
+
+JSON Data Types:
+. Number
+. String
+. Boolean
+. Object
+. Array
+
+ data store in  key value pairs fomrat
+ Key is always included in "" quotation
+
+Ex:
+ {
+   "firstname"  : "pavani",
+   "secondname: : null,
+    "age"  	: 30
+    "phone"	: [123456, 987654]
+   "status"	: true
+ }
+
+
+
+json:
+1. Json is simple to read and write
+2. It also supports array.
+3. Json files are more human-readable than XML
+4. It supports only text and number data type
+XML
+---
+1. XML is less simple as compared to JSON
+2. It doesn't support array
+3. XML files are less human readable.
+4. It supports many data types such as text number, images,charts, graphs, etc.
+
+Josn object = multiple key value arrays
+
+Day4
+-----
+Assertion - Validation
+
+pm - library
+functions 
+javascript
+
+javascript function
+pm.function
+
+chai Assertion Library
+
+Normal function:
+
+pm.test("Test Name" , function()
+   	{
+		// assertion;
+	}
+);
+
+Arrow function:
+
+pm.test("Test Name" , ()=>
+   	{
+		// assertion;
+	}
+);
+
+Example:
+
+Testing status codes
+--------------------------
+
+Test for the response status code:
+
+pm.test("Status code is 200", () =>{
+  pm.response.to.have.status(200);
+});
+
+If you want to test for the status code being one of a set, include them all in an array and use one of
+
+pm.test("Successful POST request", () =>{
+  pm.expect(pm.response.code).to.be.oneOf([200,201]);
+});
+
+check the status code text:
+
+pm.test("Status code name has string", () =>{
+  pm.response.to.have.status("Created");
+});
+
+
+Testing headers
+----------------
+check that a response a header is present:
+
+ pm.test("Content- Type header is present", () => {
+ 	pm.response.to.have.header("Content-Type");
+});
+
+check that a response a header is present:
+
+ pm.test("Content- Type header is application/json", () => {
+ 	pm.expect(pm.response.headers.get('Content-type')).to.eql('application/json; charset=utf-8');
+});
+
+
+Day 5
+--------
+Scripts
+----
+
+Pre-request scripts
+Tests
+
+Pre-requestScript ---->	Request---->Response-- Tests
+
+Collection
+Folder
+Request
+
+Variables
+----
+what?
+why?
+where?
+
+Scope
+----------
+workspace ---> collections ---> requests
+
+Global ---accessible in workspace
+Collection  --- accessible within collection
+Environment --- accessible in all collections, but we need to switch to particular environment
+Local--- accessible only within the request(specific to request)
+ inside pre-request Script we can declare local varables
+pm.variables.set("url_local","https://reqres.in");
+
+data - created in external files csv/text....
+
+url_collect
+url_global
+url_qa_env
+url_dev_env
+
+refering variables= {{url_collect}}
+
+Creating variables using pre-request scripts
+------------------------------------------
+
+> We can create Global variables, Collection variables, Environment variable in pre-request Script
+
+pm.globals.set("userId",2);
+
+pm.environment.set("userId_qa_env",4);
+
+pm.colllectionVariables.set("userId_collect", 2);
+
+unset/remove variables using script
+-----------------------------------
+ Tests tab
+
+pm.global.unset("userId_global");
+
+pm.environment.unset("userId_qa_env");
+
+pm.colllectionVariables.unset("userId_collect");
+
+How to print variables in console
+------------------------------------
+
+console.log(pm.globals.get("userid_global"));
+
+console.log(pm.environment.get("userid-qa-env"));
+
+console.log(pm.collectionVariables.get("userid-collect"));
+
+console.loag(pm.variables.get("url_local"));
+
+
+Day6
+-----
+
+Chaining of API's
+-------------------
+
+. The response of one API, we can use as request to another API is called Chaining of API's
+
+var jsonData = JSON.parse(responseBody);
+
+pm.environment.set("id",jsonData.id);
+
+How to pass dynamically values in request body:
+ In pre-request Script
+
+var random = Math.random().toString(36).substring(2);
+ var useremail = "jim" + random + "@gmail.com";
+ var username = "jim" + random;
+
+pm.environment.set("email_env",useremail);
+pm.environment.set("name_env", usename);
+
+Day-7
+--------------
+Books API - Data Driven testing
+-----------
+
+https://simple-books-api.glitch.me
+
+"accessToken": "8f24280bff56db292efa6138790c1945dfa5df9c5de53704a73bf87f0d16caa3"
+
+ "orderId": "-rP112ZIIG286WKRH3kJT"
+
+Data Driven files is gBy running collections
+
+Day-8
+-------
+1) Upload file
+
+Post:http//localhost:8080/uploadFile
+POST:http://localhost:8080/upload MultipleFiles
+
+Authentication types
+---------------------
+Basic authentication : it require password and username
+
+Digest authentication : it require password and username in encrypted form.More secure than basic authentication
+
+Bearer Token Authentication: generated token is used
+
+API key Authentication: Key value pair
+
+OAuth 1.0 OAuth 2.o : Third party company provide this type of Authentication:
+
+
+Swagger - interactive documentation  
+        - Used for exploring  api request document
+	- No validation
+	- we can't genetate reports
+
+cURL - Client URL
+contain url+ headers+ authorization +
+How to extract the url in cURL IN POSTMAN : go to import ---> Raw text --> continue  --> got url then import
+
+.>> After testing we can prepare a API documentation
+
+
+Day-9
+---------
+Petstore-
+Json
+XML
+
+const randomnum = Math.floor(Math.random()*100+1));
+Create API Document and publish
+
+var jsonData = xml2Json(responseBody); // convert to json data
+
+Day -8
+---------
+
+Soapui
+
+Advantages
+------------
+1) Functional testing
+2) Security testing
+3) Performance/Load testing
+4) Supports both SOAP & Rest services
+
+SOAPUI Pro - Licensed
+SOAPUI opensource(community)
+
+
+Saop Services
+--------------
+
+1) Create a SOAP Project, Test Suite, Test Case
+
+WSDL : Web Service Description Language(xml)
+
+SOAP UI accept only
+ xml format
+
+-> Create SOAP Project using WSDL 
+-> Create test suite & Test Cases
+-> Added contains assertion
+-> Execute contains assertion
+-> Documentation
+
+
+
+
+Project - wsdl document - test suite - test case - multiple steps
+
+Day-9
+---------
+2) Create a Rest project , Test suite , Test Case
+WADL : Web Application Description Language(URL)
+
+SOAPUI Assertions
+--------------------
+Assertion : Verifications
+
+SOAP Service --> XML
+REST Service --> JSON
+
+XML Response Assertion
+---------------------
+Contains
+Not contains
+XPath
+XQuery
+HTTP Status code
+Not Http Status codes
+SOAP Fault
+Not SOAP Fault
+Schema Compliance
+SLA
+script
+
+
+JSON Response Assertion
+-------------------------
+
+JsonPath Count
+JsonPath Match
+JsonPath Existence Match 
+JsonPath RegEx Match
+
+
+Day-10
+---------
+
+SOAP UI Properties
+
+Property is a variable which contains a value can be used in anywhere in the soapUI.
+
+
+Properties can be created at.......
+syntac for access variables at different levels
+
+Project level  		-$(#Project#PropertyName}
+Test suite level	-$(#TestSuite#PropertyName}
+Test case level		-$(#TestCase#PropertyName}
+Test step level		-$(Properties#PropertyName}
+
+
+By Groovy script we can print the values
+
+Property Transfer (value Transfer)
+-------------------------------------
+Step1 ------> Response 1 pass a value in step-2 as request 
+		|
+|---------------|
+Step-2 ------------------->Response 2
+
+
+
+Parameteization or Data Drivern:
+executing the same steps with multiple set of data.
+
+
+We can do data driven testing using following sources:
+------------------------------------------
+Excel File
+Text file
+Data generation
+JDBC
+Json
+XML
+
+${DataSource-TXT#CountryName}
+
+Executing test cases and generating reports
+------------------------------------------
+1) Ready API
+2) TestRunner
+
+3) Command Prompt
+	-> Export 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,88 @@
+Jira Tool
+-----------
+Test Management Tools
+Bug Reporting & Tracking tools
+
+Agile Tools:
+  - Jira, VersionOne, TeamCity.........
+
+Jira ---> Agile Management Tool
+
+Agile Scrum activites
+---------------------
+1) How to create project in Jira
+2) How to add users/people in Jira - setting --> User management in jira2f
+
+Backlog---> Epic ---> Stories
+
+Create Sprint ---> Add Stories to the sprint ---> Start Sprint --->  add tasks for every story
+
+3)How to create a Backlog -Epic
+4) How to create stories in Jira & add story points
+
+
+5) Creating sprint in Jira
+6) Adding user stories to sprint
+7) Starting sprint
+
+8) Adding sub-tasks to story
+9) Sprint life cycle
+
+Zepyre - plugin that to installed in jira for test management
+
+Test Management Activities( Zepyre)
+-----------------------------------
+1) Test cases
+2) Test cycle
+3) update test cases passed/Failed/blocked
+4) Report bugs
+5) Reports
+
+
+How to install zephyr plugin
+How to create Test Case in Jira Manually
+How to import multiple test cases into Jira tool
+
+
+Creating test cycles
+Add test cases to cycle
+Execute/ Update Test cases
+Reporting bugs
+Reports in Zephr
+Traceability Matrix
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,340 @@
+API Testing Introduction
+-------------------------
+Client :- It is a computer or from where we are trying to  access the application.
+Server :- Which contains actual application or software will run ont he server.
+
+Client/Server Architecture
+--------------------------
+Three tier 
+
+Types of API:
+ There are two types of API's,:
+1.Simple Object Access Protocol(SOAP)
+2. REST (Representational State Transfer).
+Both are the web services.
+
+. Web Service is an  API  wrapped in HTTP.
+API's that is available on the interent is called webservices
+All Webservices are API's.But API's are not webservices.
+. A Web Service needs a network while an API doesn't need a network for its operation.
+
+
+REST API HTTP Methods:
+GET	- Receive information about an API resource - 200
+POST	- Create an API resource - 201
+PUT	- Update an API resource - 200
+DELETE	- Delete an API RESOURECE - 204(No Content)
+
+https: = more secure
+http =  not secure easy to hack
+
+Terminologies
+--------------
+
+scheme = protocol
+		   <--path-><--resource->	
+<scheme><--Host---><---endpoint-------->
+https://google.com/articles/articlename
+			    ----URN----
+	----------------URI------------
+--------------------URL-----------------
+ URI - Uniform Resource Identifier
+ URL - Uniform Resource Locator
+ URN - Uniform Resource Name
+
+Feature & Resource:
+ 'Feature' is the term used in manual testing to test some functionality and similarly "Resource' is the term used in API Automation testing referring some functionality.
+
+Payload:
+ payload means body in the HTTP request and response message.
+. Request Payload
+. Response Payload
+
+
+Day2
+------------
+Postman - API testing tool
+we can do manual testing of API's using postman
+
+workspace: area where we maintain files and saved.
+|---create a new workspace, rename, delete
+
+collection - contains number of folders and htpp requests
+  create, rename, delete , run the collection
+we can create any number of collections under workspace.
+
+Request -----> API -------> response
+
+
+http requests
+---------------
+Get Post Put Delete
+ Patch -- update partial details of resource
+
+sample API:
+
+https://reqres.in  /api/users		?page=2
+<----host-------->  <path_parameters>   <Query parameter>
+   domain
+
+
+Query parameter = 
+
+Validations
+-------------
+status code
+time 
+size data
+response body(json/xml)
+headers
+cookies
+
+http status codes
+------------------
+3 levels
+
+
+Level 200:
+200: Ok
+201: Created
+202: Accepted
+203: Non-Authoritative information
+204: No content
+
+Level 400:
+400: Bad Request
+401: Unauthorized
+403: Forbidden
+404: Not Found
+409: Conflict
+
+Level 500:
+500: Internet Server Error
+501: Not Implemented
+502: Bad Gateway
+503: Service Unavailable
+504: Gateway Timeout
+599: Nerwork Timeout
+
+Day-3
+--------
+
+Creating our own API's
+-----------------------
+if we want to create own API's we need to install below software
+
+step1) NodeJS
+npm - node package manager
+
+execute two commands below:
+node  --version
+npm   --version
+
+step2) json- server
+run the below command in the cmd/terminal
+  npm install -g json -server
+
+tests/Validations
+------------------
+ JSON - Java Script Object Notation
+. JSON is a syntax for storing and exchanging data
+. designed for human-readable data interchange
+. extended from the JavaScript scripting language
+. filename extension is .json
+. Json internet Media type is application/json
+
+Advantages of  Json:
+. It is light  weighted it takes less time to travel from client to server
+. It is encrypted and decrypted
+. json (rest) preferred over xml(soap)
+
+JSON Data Types:
+. Number
+. String
+. Boolean
+. Object
+. Array
+
+ data store in  key value pairs fomrat
+ Key is always included in "" quotation
+
+Ex:
+ {
+   "firstname"  : "pavani",
+   "secondname: : null,
+    "age"  	: 30
+    "phone"	: [123456, 987654]
+   "status"	: true
+ }
+
+
+
+json:
+1. Json is simple to read and write
+2. It also supports array.
+3. Json files are more human-readable than XML
+4. It supports only text and number data type
+XML
+---
+1. XML is less simple as compared to JSON
+2. It doesn't support array
+3. XML files are less human readable.
+4. It supports many data types such as text number, images,charts, graphs, etc.
+
+Josn object = multiple key value arrays
+
+Day4
+-----
+Assertion - Validation
+
+pm - library
+functions 
+javascript
+
+javascript function
+pm.function
+
+chai Assertion Library
+
+Normal function:
+
+pm.test("Test Name" , function()
+   	{
+		// assertion;
+	}
+);
+
+Arrow function:
+
+pm.test("Test Name" , ()=>
+   	{
+		// assertion;
+	}
+);
+
+Example:
+
+Testing status codes
+--------------------------
+
+Test for the response status code:
+
+pm.test("Status code is 200", () =>{
+  pm.response.to.have.status(200);
+});
+
+If you want to test for the status code being one of a set, include them all in an array and use one of
+
+pm.test("Successful POST request", () =>{
+  pm.expect(pm.response.code).to.be.oneOf([201,201]);
+});
+
+check the status code text:
+
+pm.test("Status code name has string", () =>{
+  pm.response.to.have.status("Created");
+});
+
+
+Testing headers
+----------------
+check that a response a header is present:
+
+ pm.test("Content- Type header is present", () => {
+ 	pm.response.to.have.header("Content-Type");
+});
+
+check that a response a header is present:
+
+ pm.test("Content- Type header is application/json", () => {
+ 	pm.expect(pm.response.headers.get('Content-type')).to.eql('application/json; charset=utf-8');
+});
+
+
+Day 5
+--------
+Scripts
+----
+
+Pre-request scripts
+Tests
+
+Pre-requestScript ---->	Request---->Response-- Tests
+
+Collection
+Folder
+Request
+
+Variables
+----
+what?
+why?
+where?
+
+Scope
+----------
+workspace ---> collections ---> requests
+
+Global ---accessible in workspace
+Collection  --- accessible within collection
+Environment --- accessible in all collections, but we need to switch to particular environment
+Local--- accessible only within the request(specific to request)
+ inside pre-request Script we can declare local varables
+pm.variables.set("url_local","https://reqres.in");
+
+data - created in external files csv/text....
+
+url_collect
+url_global
+url_qa_env
+url_dev_env
+
+refering variables= {{url_collect}}
+
+Creating variables using pre-request scripts
+------------------------------------------
+
+> We can create Global variables, Collection variables, Environment variable in pre-request Script
+
+pm.globals.set("userId",2);
+
+pm.environment.set("userId_qa_env",4);
+
+pm.colllectionVariables.set("userId_collect", 2);
+
+unset/remove variables using script
+-----------------------------------
+ Tests tab
+
+pm.global.unset("userId_global");
+
+pm.environment.unset("userId_qa_env");
+
+pm.colllectionVariables.unset("userId_collect");
+
+How to print variables in console
+------------------------------------
+
+console.log(pm.globals.get("userid_global"));
+
+console.log(pm.environment.get("userid-qa-env"));
+
+console.log(pm.collectionVariables.get("userid-collect"));
+
+console.loag(pm.variables.get("url_local"));
+
+
+Day6
+-----
+
+
+
+
+
+
+
+
+
+
+
+
